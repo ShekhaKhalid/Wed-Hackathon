@@ -16,7 +16,7 @@ public class DialogManager : MonoBehaviour
     private List<dialogString> dialogueList;
 
     //there is a player part to not make him move
-
+    public float speed = 1.0f; // The movement speed
     private int currentDialogueIndex = 0;
 
     [Header("Sound")]
@@ -34,8 +34,14 @@ public class DialogManager : MonoBehaviour
 
     private string currentAnswerOption;
     [SerializeField] private Animator anim;
-    //public ConvaiLipSync lips;
-    private void Start()
+
+    [SerializeField] private Transform NPCTrasform;
+    [SerializeField] private Transform newNPCTransfrom;
+    [SerializeField] private AudioClip soundangry;
+
+
+   //public ConvaiLipSync lips;
+   private void Start()
     {
        // dialogueParent.SetActive(false);
         //voiceRecognizer.VoiceEvents.OnPartialResponse.AddListener(HandleSpeak);
@@ -79,10 +85,10 @@ public class DialogManager : MonoBehaviour
                 audioSource.PlayOneShot(line.clip);
                 yield return StartCoroutine(TypeText(line.text));
                 anim.SetBool("Talk", false);
-
-
+                
                 option1Text.text = line.answerOption1;
                 currentAnswerOption = option1Text.text;
+                yield return StartCoroutine(soundtimer());
                 audioSource.PlayOneShot(line.answerClip);
                 RemoveListenSelectedListener();
 
@@ -108,6 +114,9 @@ public class DialogManager : MonoBehaviour
         }
         print("done11111");
         DialogueStop();
+        yield return StartCoroutine(youcan());
+        audioSource.PlayOneShot(soundangry);
+
     }
 
     private void ContinuePressed() {
@@ -133,6 +142,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogueText.text += letter;
             anim.SetBool("Talk", true);
+          
             //lips.LipSyncCharacter();
             yield return new WaitForSeconds(typingSpeed);
         }
@@ -145,22 +155,54 @@ public class DialogManager : MonoBehaviour
         //currentDialogueIndex++;
     }
 
+
+    private IEnumerator soundtimer()
+    {
+       // dialogueText.text = "";
+
+        //foreach (char letter in text.ToCharArray())
+        //{
+        //    dialogueText.text += letter;
+        //    anim.SetBool("Talk", true);
+        //    //lips.LipSyncCharacter();
+            yield return new WaitForSeconds(1f);
+        //}
+        //if (!dialogueList[currentDialogueIndex].isQuestion)
+        //{
+        //    //yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        //}
+        //if (dialogueList[currentDialogueIndex].isEnd)
+        //    DialogueStop();
+        //currentDialogueIndex++;
+    }
+
+
+
     public void DialogueStop()
     {
         StopAllCoroutines();
         dialogueText.text = "";
         dialogueParent.SetActive(false);
+
+
+       
+
     }
 
 
-  
-
-    
 
 
-    
+    private IEnumerator youcan()
+    {
+        
+            yield return new WaitForSeconds(5f);
+        
+    }
 
-   
+
+
+
+
     private void RemoveListenSelectedListener()
     {
         //option1Listen.onClick.RemoveAllListeners();

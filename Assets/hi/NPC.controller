@@ -71,7 +71,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: ee148ef3680430844bc82fd7aa9a9508, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: ee148ef3680430844bc82fd7aa9a9508,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -87,6 +88,12 @@ AnimatorController:
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Talk
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 1
+    m_Controller: {fileID: 0}
+  - m_Name: walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -126,7 +133,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 2ea4a776779a150428400a6d13841204, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 2ea4a776779a150428400a6d13841204,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
