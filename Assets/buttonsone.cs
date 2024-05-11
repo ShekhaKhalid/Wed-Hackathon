@@ -1,18 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class buttonsone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Button btnStart;
+    [SerializeField] private Button btninstruct;
+
+
+    [SerializeField] private GameObject UIstart;
+    [SerializeField] private GameObject UIinstruct;
+
+
+
+
+    private void Update()
     {
-        
+        btnStart.onClick.AddListener(() => changeTheUI());
+        btninstruct.onClick.AddListener(() => changeScene());
+        //option1Stop.onClick.AddListener(() => StopRecording(currentAnswerOption));
     }
 
-    // Update is called once per frame
-    void Update()
+    private void changeTheUI()
     {
-        
+        UIstart.SetActive
+            (false);
+
+        UIinstruct.SetActive(true); 
+    }
+
+
+    private void changeScene()
+    {
+        SceneManager.LoadSceneAsync("FatimaS");
     }
 }

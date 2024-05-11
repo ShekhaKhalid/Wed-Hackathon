@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/start.unity
+    guid: 94d4ffa222c624945ab7462c30fed78b
+  - enabled: 1
+    path: Assets/Scenes/FatimaS.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 94b925ce398597c479aa6d5eebc06858,
       type: 2}
